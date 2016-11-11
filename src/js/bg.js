@@ -135,19 +135,19 @@ const controls = {
 			backgroundImage.changeFrontLayer(1, 2, {
 				type   : 'Power0.easeInOut',
 				stutter: 20
-			}, true);
+			}, false);
 		});
 		$('#change-layer-2').click(() => {
 			backgroundImage.changeFrontLayer(2, 2, {
 				type   : 'Power0.easeInOut',
 				stutter: 20
-			}, true);
+			}, false);
 		});
 		$('#change-layer-3').click(() => {
 			backgroundImage.changeFrontLayer(3, 2, {
 				type   : 'Power0.easeInOut',
 				stutter: 20
-			}, true);
+			}, false);
 		});
 	}
 };
