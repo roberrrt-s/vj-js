@@ -1,0 +1,70 @@
+body, main {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #323232;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+body > *:not(#controls), main > *:not(#controls) {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-size: 4em;
+}
+
+body > *:not(#controls) img, main > *:not(#controls) img {
+  min-width: 105vw;
+  min-height: 105vh;
+  overflow: hidden;
+}
+
+body .background.image-container:not(.active-bg-image), main .background.image-container:not(.active-bg-image) {
+  opacity: 0;
+}
+
+body .background.image-container > img, main .background.image-container > img {
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+body .block, main .block {
+  background-image: url("https://media.giphy.com/media/lVq6rcjCUmjRe/giphy.gif");
+  background-position: center center;
+}
+
+body #controls, main #controls {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  padding: 5px;
+  background-color: #F3F3F3;
+  z-index: 1000;
+  width: auto;
+}
+
+body #controls input, body #controls button, main #controls input, main #controls button {
+  margin-right: 5px;
+}
+
+body #controls > label, main #controls > label {
+  margin-right: 5px;
+}
+
+body #controls .layer-options, main #controls .layer-options {
+  float: left;
+}
+
+body #controls .layer-options > *, main #controls .layer-options > * {
+  float: left;
+  clear: both;
+}

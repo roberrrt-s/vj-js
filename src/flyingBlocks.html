@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="vj.js demo installation">
+		<meta name="author" content="Robert Spier">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+		<link rel="stylesheet" href="style/style.css">
+		<title>Prototype - Index</title>
+	</head>
+	<body>
+
+		<main>
+			<div id="layer-1" class="background image-container"><img src="http://gifyu.com/images/insta979bd.gif"></div>
+			<div id="layer-2" class="background image-container"><img src="https://media.giphy.com/media/3oEduYJ5WzNGsAadKU/giphy.gif"></div>
+			<div id="layer-3" class="background image-container active-bg-image"><img src="http://i.imgur.com/yJ8qnBH.gif"></div>
+		</main>
+
+		<div id="controls">
+			<button id="start-stop">Start/Stop</button>
+			<button id="update">Reset</button>
+
+			<label for="color-picker">Color</label>
+			<label><input type="radio" name="color-picker" value="redTones" checked>red</label>
+			<label><input type="radio" name="color-picker" value="greenTones">green</label>
+			<label><input type="radio" name="color-picker" value="blueTones">blue</label>
+
+			<label for="speed">Speed</label>
+			<input type="range" id="speed" min="2" value="12" max="12" step="1">
+
+		</div>
+
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+		<script src="js/vj.js"></script>
+	</body>
+</html>

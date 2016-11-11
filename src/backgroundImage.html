@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="vj.js demo installation">
+		<meta name="author" content="Robert Spier">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+		<link rel="stylesheet" href="style/style.css">
+		<title>Prototype - Index</title>
+	</head>
+	<body>
+
+		<main>
+			<div id="layer-1" class="background image-container active-bg-image"><img src="http://i.imgur.com/yJ8qnBH.gif"></div>
+			<div id="layer-2" class="background image-container"><img src="http://gifyu.com/images/insta979bd.gif"></div>
+			<div id="layer-3" class="background image-container"><img src="https://media.giphy.com/media/3oEduYJ5WzNGsAadKU/giphy.gif"></div>
+		</main>
+
+		<div id="controls">
+			<fieldset>
+				<button id="change-layer-1" value="1">Change to layer 1</button>
+				<button id="change-layer-2" value="2">Change to layer 2</button>
+				<button id="change-layer-3" value="3">Change to layer 3</button>
+			</fieldset>
+			<fieldset class="layer-options" id="layer-1-options">
+				<legend>Layer 1 settings</legend>
+				<label for="layer-1-blur">Blur</label>
+				<input name="layer-1-blur" type="range" min="0" max="10" value="0" step="1" id="layer-1-blur"> 
+				<label for="layer-1-brightness">Brightness</label>
+				<input name="layer-1-brightness" type="range" min="0" max="200" value="100" step="10" id="layer-1-brightness">
+				<label for="layer-1-contrast">Contrast</label>
+				<input name="layer-1-contrast" type="range" min="50" max="150" value="100" step="10" id="layer-1-contrast">
+				<label for="layer-1-grayscale">Grayscale</label>
+				<input name="layer-1-grayscale" type="range" min="0" max="100" value="0" step="10" id="layer-1-grayscale">
+				<label for="layer-1-hue">Hue</label>
+				<input name="layer-1-hue" type="range" min="0" max="360" value="0" step="10" id="layer-1-hue">
+				<label for="layer-1-invert">Invert</label>
+				<input name="layer-1-invert" type="range" min="0" max="100" value="0" step="10" id="layer-1-invert">
+				<label for="layer-1-saturate">Saturate</label>
+				<input name="layer-1-saturate" type="range" min="0" max="200" value="100" step="10" id="layer-1-saturate">
+				<label for="layer-1-sepia">Sepia</label>
+				<input name="layer-1-sepia" type="range" min="0" max="100" value="0" step="10" id="layer-1-sepia">				
+			</fieldset>
+			<fieldset class="layer-options" id="layer-2-options">
+				<legend>Layer 2 settings</legend>
+				<label for="layer-2-blur">Blur</label>
+				<input name="layer-2-blur" type="range" min="0" max="10" value="0" step="1" id="layer-2-blur"> 
+				<label for="layer-2-brightness">Brightness</label>
+				<input name="layer-2-brightness" type="range" min="0" max="200" value="100" step="10" id="layer-2-brightness">
+				<label for="layer-2-contrast">Contrast</label>
+				<input name="layer-2-contrast" type="range" min="50" max="150" value="100" step="10" id="layer-2-contrast">
+				<label for="layer-2-grayscale">Grayscale</label>
+				<input name="layer-2-grayscale" type="range" min="0" max="100" value="0" step="10" id="layer-2-grayscale">
+				<label for="layer-2-hue">Hue</label>
+				<input name="layer-2-hue" type="range" min="0" max="360" value="0" step="10" id="layer-2-hue">
+				<label for="layer-2-invert">Invert</label>
+				<input name="layer-2-invert" type="range" min="0" max="100" value="0" step="10" id="layer-2-invert">
+				<label for="layer-2-saturate">Saturate</label>
+				<input name="layer-2-saturate" type="range" min="0" max="200" value="100" step="10" id="layer-2-saturate">
+				<label for="layer-2-sepia">Sepia</label>
+				<input name="layer-2-sepia" type="range" min="0" max="100" value="0" step="10" id="layer-2-sepia">				
+			</fieldset>
+			<fieldset class="layer-options" id="layer-3-options">
+				<legend>Layer 3 settings</legend>
+				<label for="layer-3-blur">Blur</label>
+				<input name="layer-3-blur" type="range" min="0" max="10" value="0" step="1" id="layer-3-blur"> 
+				<label for="layer-3-brightness">Brightness</label>
+				<input name="layer-3-brightness" type="range" min="0" max="200" value="100" step="10" id="layer-3-brightness">
+				<label for="layer-3-contrast">Contrast</label>
+				<input name="layer-3-contrast" type="range" min="50" max="150" value="100" step="10" id="layer-3-contrast">
+				<label for="layer-3-grayscale">Grayscale</label>
+				<input name="layer-3-grayscale" type="range" min="0" max="100" value="0" step="10" id="layer-3-grayscale">
+				<label for="layer-3-hue">Hue</label>
+				<input name="layer-3-hue" type="range" min="0" max="360" value="0" step="10" id="layer-3-hue">
+				<label for="layer-3-invert">Invert</label>
+				<input name="layer-3-invert" type="range" min="0" max="100" value="0" step="10" id="layer-3-invert">
+				<label for="layer-3-saturate">Saturate</label>
+				<input name="layer-3-saturate" type="range" min="0" max="200" value="100" step="10" id="layer-3-saturate">
+				<label for="layer-3-sepia">Sepia</label>
+				<input name="layer-3-sepia" type="range" min="0" max="100" value="0" step="10" id="layer-3-sepia">				
+			</fieldset>	
+		</div>
+
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+		<script src="js/bg.js"></script>
+	</body>
+</html>
