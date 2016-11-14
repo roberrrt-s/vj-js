@@ -29,7 +29,7 @@ const backgroundImage = {
 		});
 
 		$('.background.image-container.active-bg-image')
-			.css('z-index', 3);
+			.css('z-index', 3).show();
 	},
 
 	data: {},
@@ -55,6 +55,7 @@ const backgroundImage = {
 			return;
 		}
 
+		$target.show();
 		const current = $('.background.image-container.active-bg-image');
 		const time = duration ||  1; // default 1s
 
@@ -85,12 +86,12 @@ const backgroundImage = {
 			current.css({
 				zIndex : 1,
 				opacity: 1
-			}).removeClass('active-bg-image');
+			}).removeClass('active-bg-image').hide();
 		}
 	},
 
 	resetEffects(target) {
-		const $target = $(target);
+		const $target = $(`#${target}`);
 		TweenMax.to($target, 0.5, {
 			css: {
 				filter: `blur(${backgroundImage.data.reset.blur}px) brightness(${backgroundImage.data.reset.brightness}%) contrast(${backgroundImage.data.reset.contrast}%) grayscale(${backgroundImage.data.reset.grayscale}%) hue-rotate(${backgroundImage.data.reset.hue}deg) invert(${backgroundImage.data.reset.invert}%) saturate(${backgroundImage.data.reset.saturate}%) sepia(${backgroundImage.data.reset.sepia}%)`
@@ -118,10 +119,19 @@ const backgroundImage = {
 
 const controls = {
 	init() {
-		controls.backgroundImage();
+		controls.runBackgroundImageEvents();
+		controls.runHideShowControls();
 	},
 
-	backgroundImage() {
+	runHideShowControls() {
+		$(document).on('keypress', e => {
+			if (e.which === 104) {
+				$('#controls').toggle();
+			}
+		});
+	},
+
+	runBackgroundImageEvents() {
 		$('.layer-options > input').each((i, el) => {
 			$(el).on('change', () => {
 				const target = $(el).attr('id').slice(0, 7);
@@ -148,6 +158,21 @@ const controls = {
 				type   : 'Power0.easeInOut',
 				stutter: 20
 			}, false);
+		});
+
+		$('.reset-button').click(e => {
+			const target = $(e.target).attr('id').slice(0, 7);
+
+			Object.keys(backgroundImage.data[target]).forEach(property => {
+				backgroundImage.data[target][property] = backgroundImage.data.reset[property];
+			});
+
+			$(`#${target}-options > input`).each((i, el) => {
+				const property = $(el).attr('id').slice(8);
+				$(el).val(backgroundImage.data.reset[property]);
+			});
+
+			backgroundImage.resetEffects(target);
 		});
 	}
 };

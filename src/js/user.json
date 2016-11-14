@@ -40,5 +40,8 @@
 				"saturate": 100,
 				"sepia": 0				
 			}
+		},
+		"harmoniousBlocks": {
+			"hello": "world"
 		}
 	}

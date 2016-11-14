@@ -68,3 +68,7 @@ body #controls .layer-options > *, main #controls .layer-options > * {
   float: left;
   clear: both;
 }
+
+body #controls .layer-options button, main #controls .layer-options button {
+  margin-top: 5px;
+}

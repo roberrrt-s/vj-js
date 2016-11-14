@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="vj.js demo installation">
+		<meta name="author" content="Robert Spier">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+		<link rel="stylesheet" href="style/style.css">
+		<title>Prototype - Index</title>
+	</head>
+	<body>
+
+		<main>
+			<div class="harmonious-block"></div>
+			<div class="harmonious-block"></div>
+			<div class="harmonious-block"></div>
+			<div class="harmonious-block"></div>
+			<div class="harmonious-block"></div>
+			<div class="harmonious-block"></div>
+			<div class="harmonious-block"></div>
+			<div class="harmonious-block"></div>
+		</main>
+
+		<div id="controls">
+			<button id="start-stop">Start/Stop</button>
+			<button id="update">Reset</button>
+
+			<label for="color-picker">Color</label>
+			<label><input type="radio" name="color-picker" value="redTones" checked>red</label>
+			<label><input type="radio" name="color-picker" value="greenTones">green</label>
+			<label><input type="radio" name="color-picker" value="blueTones">blue</label>
+
+			<label for="speed">Speed</label>
+			<input type="range" id="speed" min="2" value="12" max="12" step="1">
+
+		</div>
+
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+		<script src="js/hb.js"></script>
+	</body>
+</html>
