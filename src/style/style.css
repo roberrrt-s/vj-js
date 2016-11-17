@@ -10,6 +10,8 @@ body, main {
 }
 
 body > *:not(#controls), main > *:not(#controls) {
+  top: 0;
+  left: 0;
   position: absolute;
   display: flex;
   justify-content: center;

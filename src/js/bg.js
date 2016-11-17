@@ -5,9 +5,15 @@
 /* global Power1 */
 
 const util = {
-	random(min, max) {
+	randomRange(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
+	randomDoubleRange(min1, max1, min2, max2) {
+		if(Math.random() < 0.5 ? value1 : value2) {
+
+		}
+	}
+
 };
 
 const backgroundImage = {
@@ -36,9 +42,10 @@ const backgroundImage = {
 
 	changeBackgroundImage(target, src) {
 		const $target = $(`#layer-${target} > img`);
+		const string = `img/background-${src}.gif`;
 
 		if (!$target.parent().hasClass('active-bg-image')) {
-			$target.attr('src', src);
+			$target.attr('src', string);
 
 			return;
 		}
@@ -113,7 +120,26 @@ const backgroundImage = {
 		function cancelAnimation() {
 			effectTween.kill();
 		}
-	}
+	},
+
+	applyRandomEffect(duration, target) {
+		const $target = $(`#layer-${target}`);
+		const time = duration ||  1; // default 1s
+
+		const effectTween = TweenMax.to($target, time, {
+			css: {
+				filter: `blur(${util.randomRange(0, 1)}px) brightness($${util.randomRange(50, 150)}%) contrast(${util.randomRange(50, 150)}%) grayscale(${util.randomRange(0, 25)}%) hue-rotate(${util.randomRange(0, 360)}deg) invert(${util.randomRange(0, 100)}%) saturate(${util.randomRange(50, 150)}%) sepia(${util.randomRange(0, 40)}%)`
+			},
+			onComplete: cancelAnimation
+		});
+
+		function cancelAnimation() {
+			effectTween.kill();
+		}
+	},
+
+	interval: {},
+	looping : false
 
 };
 
@@ -123,16 +149,43 @@ const controls = {
 		controls.runHideShowControls();
 	},
 
+	initLoop() {
+		return setInterval(() => {
+			const current = parseInt($('.background.image-container.active-bg-image').attr('id').slice(6), 10);
+			let target = current + 1;
+			if (target > 3) {
+				target = 1;
+			}
+
+			backgroundImage.changeBackgroundImage(target, util.randomRange(1, 37));
+
+			backgroundImage.changeFrontLayer(target, 2, {
+				type   : 'Power0.easeInOut',
+				stutter: 20
+			}, false);
+
+			backgroundImage.applyRandomEffect(3, target);
+
+		}, 6000);
+	},
+
 	runHideShowControls() {
 		$(document).on('keypress', e => {
 			if (e.which === 104) {
 				$('#controls').toggle();
+			} else if (e.which === 114 && !backgroundImage.looping) {
+				$('.reset-button').click();
+				backgroundImage.looping = true;
+				backgroundImage.interval = controls.initLoop();
+			} else if (e.which === 115 && backgroundImage.looping) {
+				clearInterval(backgroundImage.interval);
+				$('.reset-button').click();
 			}
 		});
 	},
 
 	runBackgroundImageEvents() {
-		$('.layer-options > input').each((i, el) => {
+		$('.layer-options > input[type=range]').each((i, el) => {
 			$(el).on('change', () => {
 				const target = $(el).attr('id').slice(0, 7);
 				const type = $(el).attr('id').slice(8);
@@ -158,6 +211,10 @@ const controls = {
 				type   : 'Power0.easeInOut',
 				stutter: 20
 			}, false);
+		});
+
+		$('.change-layer-bg').click(e => {
+			backgroundImage.changeBackgroundImage($(e.target).val(), $('#change-bg-image').val());
 		});
 
 		$('.reset-button').click(e => {

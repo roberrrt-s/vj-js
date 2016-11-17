@@ -12,9 +12,9 @@
 	<body>
 
 		<main>
-			<div id="layer-1" class="background image-container active-bg-image"><img src="http://i.imgur.com/yJ8qnBH.gif"></div>
-			<div id="layer-2" class="background image-container"><img src="http://gifyu.com/images/insta979bd.gif"></div>
-			<div id="layer-3" class="background image-container"><img src="https://media.giphy.com/media/3oEduYJ5WzNGsAadKU/giphy.gif"></div>
+			<div id="layer-1" class="background image-container active-bg-image"><img src="img/background-36.gif"></div>
+			<div id="layer-2" class="background image-container"><img src="img/background-21.gif"></div>
+			<div id="layer-3" class="background image-container"><img src="img/background-31.gif"></div>
 		</main>
 
 		<div id="controls">
@@ -22,7 +22,15 @@
 				<button id="change-layer-1" value="1">Change to layer 1</button>
 				<button id="change-layer-2" value="2">Change to layer 2</button>
 				<button id="change-layer-3" value="3">Change to layer 3</button>
-				<p>press 'h' to hide/show this	
+				<p>press 'h' to hide/show this<br>
+				use 'r' for a random repeated loop, stop this with 's'</p>
+			<fieldset class="layer-options">
+				<label for="change-bg-image">Change bg image (number between 1-33)</label>
+				<input type="number" id="change-bg-image" name="change-bg-image" value="1">
+				<button class="change-layer-bg" value="1">Change layer 1 bg image</button>
+				<button class="change-layer-bg" value="2">Change layer 2 bg image</button>
+				<button class="change-layer-bg" value="3">Change layer 3 bg image</button>
+			</fieldset>
 			</fieldset>
 			<fieldset class="layer-options" id="layer-1-options">
 				<legend>Layer 1 settings</legend>
